@@ -45,7 +45,7 @@ export default function BlogCard({
       viewport={{ once: true, margin: "-40px" }}
     >
       <Link href={`/blog/${slug}`} className="block group">
-        <div className="rounded-2xl overflow-hidden bg-white shadow-sm border border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300 hover:scale-[1.01]">
+        <div className="rounded-2xl overflow-hidden bg-white dark:bg-slate-800/50 shadow-sm border border-border dark:border-slate-700 hover:shadow-lg hover:border-primary/20 dark:hover:border-primary-light/30 transition-all duration-300 hover:scale-[1.01]">
           {coverSrc && (
             <div className="relative aspect-[16/9] overflow-hidden">
               <Image
@@ -58,12 +58,12 @@ export default function BlogCard({
           )}
           <div className="p-5">
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs font-medium text-primary bg-primary/10 px-2.5 py-0.5 rounded-md">
+              <span className="text-xs font-medium text-primary dark:text-primary-light bg-primary/10 dark:bg-primary/15 px-2.5 py-0.5 rounded-md">
                 {category}
               </span>
               <span className="text-xs text-muted">{date}</span>
             </div>
-            <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2 line-clamp-2">
+            <h3 className="font-semibold text-foreground dark:text-foreground group-hover:text-primary dark:group-hover:text-primary-light transition-colors mb-2 line-clamp-2">
               {title}
             </h3>
             <p className="text-sm text-muted line-clamp-2">{excerpt}</p>

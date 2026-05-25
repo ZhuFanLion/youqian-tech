@@ -15,21 +15,21 @@ interface BusinessCardProps {
 
 const colorMap = {
   gold: {
-    border: "border-gold/20 hover:border-gold/50",
-    iconBg: "bg-gold/10",
+    border: "border-gold/20 hover:border-gold/50 dark:border-gold/15 dark:hover:border-gold/40",
+    iconBg: "bg-gold/10 dark:bg-gold/15",
     arrow: "text-gold",
     glow: "group-hover:shadow-[0_0_30px_rgba(186,117,23,0.1)]",
   },
   primary: {
-    border: "border-primary/20 hover:border-primary/50",
-    iconBg: "bg-primary/10",
-    arrow: "text-primary",
+    border: "border-primary/20 hover:border-primary/50 dark:border-primary/15 dark:hover:border-primary/40",
+    iconBg: "bg-primary/10 dark:bg-primary/15",
+    arrow: "text-primary dark:text-primary-light",
     glow: "group-hover:shadow-[0_0_30px_rgba(24,95,165,0.1)]",
   },
   accent: {
-    border: "border-emerald-500/20 hover:border-emerald-500/50",
-    iconBg: "bg-emerald-500/10",
-    arrow: "text-emerald-500",
+    border: "border-accent/20 hover:border-accent/50 dark:border-accent/15 dark:hover:border-accent/40",
+    iconBg: "bg-accent/10 dark:bg-accent/15",
+    arrow: "text-accent",
     glow: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.1)]",
   },
 };
@@ -67,7 +67,7 @@ export default function BusinessCard({
     >
       <Link
         href={href}
-        className={`block p-6 md:p-8 rounded-2xl border ${colors.border} bg-white transition-all duration-300 group hover:scale-[1.02] active:scale-[0.98] ${colors.glow}`}
+        className={`block p-6 md:p-8 rounded-2xl border ${colors.border} bg-white dark:bg-slate-800/50 transition-all duration-300 group hover:scale-[1.02] active:scale-[0.98] ${colors.glow}`}
       >
         <motion.div
           className={`w-12 h-12 rounded-xl ${colors.iconBg} flex items-center justify-center mb-5`}
@@ -76,7 +76,7 @@ export default function BusinessCard({
         >
           {icon}
         </motion.div>
-        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary dark:text-foreground dark:group-hover:text-primary-light transition-colors">
           {title}
         </h3>
         <p className="text-muted text-sm leading-relaxed mb-4">{description}</p>

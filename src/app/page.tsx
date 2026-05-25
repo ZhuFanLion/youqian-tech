@@ -19,8 +19,8 @@ export default function HomePage() {
         secondaryCTA={{ label: "了解服务", href: "/ai-model" }}
       />
 
-      {/* 三大业务 */}
-      <section className="py-20 md:py-28">
+      {/* 三大业务 — primary section: larger padding */}
+      <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="我们的服务"
@@ -45,7 +45,7 @@ export default function HomePage() {
               index={1}
             />
             <BusinessCard
-              icon={<Megaphone size={24} className="text-emerald-500" />}
+              icon={<Megaphone size={24} className="text-accent" />}
               title="线下活动引流"
               description="策划执行线下品牌活动，打通线上线下流量闭环，助力服装物业方实现精准引流。"
               href="/offline-event"
@@ -56,7 +56,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 数据亮点 */}
+      {/* 数据亮点 — compact section */}
       <Stats
         items={[
           { value: 200, suffix: "+", label: "服务客户" },
@@ -66,8 +66,8 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 客户评价 */}
-      <section className="py-20 md:py-28">
+      {/* 客户评价 — secondary section: moderate padding */}
+      <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="客户评价"
@@ -100,8 +100,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 博客 */}
-      <section className="py-20 md:py-28 bg-muted-light">
+      {/* 博客 — secondary section with background */}
+      <section className="py-16 md:py-24 bg-muted-light dark:bg-slate-800/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="行业洞察"

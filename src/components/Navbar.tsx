@@ -27,7 +27,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -41,16 +40,14 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm"
+          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <Logo scrolled={scrolled} />
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -59,10 +56,10 @@ export default function Navbar() {
                 className={`relative text-sm font-medium transition-colors ${
                   isActive(link.href)
                     ? scrolled
-                      ? "text-primary"
+                      ? "text-primary dark:text-primary-light"
                       : "text-white"
                     : scrolled
-                    ? "text-foreground/70 hover:text-primary"
+                    ? "text-foreground/70 hover:text-primary dark:text-foreground/70 dark:hover:text-primary-light"
                     : "text-white/70 hover:text-white"
                 }`}
               >
@@ -84,10 +81,9 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`}
+            className={`md:hidden p-2 ${scrolled ? "text-foreground dark:text-foreground" : "text-white"}`}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -95,14 +91,13 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-border overflow-hidden"
+            className="md:hidden bg-white dark:bg-slate-900 border-t border-border dark:border-slate-700 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
@@ -111,8 +106,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`block text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
                     isActive(link.href)
-                      ? "text-primary bg-primary/5"
-                      : "text-foreground/70 hover:text-primary hover:bg-muted-light"
+                      ? "text-primary dark:text-primary-light bg-primary/5 dark:bg-primary-light/10"
+                      : "text-foreground/70 dark:text-foreground/70 hover:text-primary dark:hover:text-primary-light hover:bg-muted-light dark:hover:bg-slate-800"
                   }`}
                 >
                   {link.label}
