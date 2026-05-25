@@ -20,7 +20,7 @@ export default function HomePage() {
       />
 
       {/* 三大业务 */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="我们的服务"
@@ -34,6 +34,7 @@ export default function HomePage() {
               description="利用AI技术生成高质量模特图片和视频，大幅降低拍摄成本，提升商品展示效果。"
               href="/ai-model"
               color="gold"
+              index={0}
             />
             <BusinessCard
               icon={<Smartphone size={24} className="text-primary" />}
@@ -41,6 +42,7 @@ export default function HomePage() {
               description="专业运营小红书、抖音等平台，打造高影响力IP账号，精准触达目标客户群。"
               href="/social-ip"
               color="primary"
+              index={1}
             />
             <BusinessCard
               icon={<Megaphone size={24} className="text-emerald-500" />}
@@ -48,6 +50,7 @@ export default function HomePage() {
               description="策划执行线下品牌活动，打通线上线下流量闭环，助力服装物业方实现精准引流。"
               href="/offline-event"
               color="accent"
+              index={2}
             />
           </div>
         </div>
@@ -64,38 +67,41 @@ export default function HomePage() {
       />
 
       {/* 客户评价 */}
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="客户评价"
-            title="他们都在用有钱科技"
-            description="听听合作伙伴的真实反馈"
+            title="合作伙伴的真实反馈"
+            description="效果和数据不会说谎"
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Testimonial
-              name="陈总"
-              company="广州某服装批发市场"
-              content="用了AI模特之后，商品图拍摄成本直接降了80%，出图速度提升了10倍，客户转化率反而提高了。"
+              name="汇泰服装"
+              company="广州十三行 · 女装批发"
+              content="以前每季拍新品图要花2-3万，现在用AI模特一周就搞定，成本降了80%以上。最重要的是出图速度提了10倍，上新再也不用等拍摄档期了。"
               rating={5}
+              index={0}
             />
             <Testimonial
-              name="李经理"
-              company="某女装品牌"
-              content="社媒IP打造效果超出预期，小红书账号3个月从0做到5万粉，精准引流效果非常好。"
+              name="MUSE STUDIO"
+              company="独立女装品牌"
+              content="社媒运营从0开始，3个月小红书账号做到5万+精准粉，客单价提升了40%。团队对服装行业的理解比一般MCN深很多，不只是做号，是在做品牌。"
               rating={5}
+              index={1}
             />
             <Testimonial
-              name="王总"
-              company="某服装物业方"
-              content="线下活动策划很专业，一场活动下来商户的客流量提升了3倍，已经长期合作了。"
+              name="时代商务中心"
+              company="服装批发市场运营方"
+              content="一场换季招商活动带来500+精准商户到场，签约率比去年翻了一倍。活动策划很系统，从预热到执行到后续跟进都有完整方案。"
               rating={5}
+              index={2}
             />
           </div>
         </div>
       </section>
 
       {/* 博客 */}
-      <section className="py-16 md:py-24 bg-muted-light">
+      <section className="py-20 md:py-28 bg-muted-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="行业洞察"
@@ -109,6 +115,7 @@ export default function HomePage() {
               date="2026-05-20"
               slug="ai-model-trend-2026"
               category="AI技术"
+              index={0}
             />
             <BlogCard
               title="小红书服装账号从0到10万粉的运营方法论"
@@ -116,6 +123,7 @@ export default function HomePage() {
               date="2026-05-15"
               slug="xiaohongshu-growth-method"
               category="社媒运营"
+              index={1}
             />
             <BlogCard
               title="服装批发市场线下活动引流实战复盘"
@@ -123,6 +131,7 @@ export default function HomePage() {
               date="2026-05-10"
               slug="offline-event-case-study"
               category="活动策划"
+              index={2}
             />
           </div>
         </div>

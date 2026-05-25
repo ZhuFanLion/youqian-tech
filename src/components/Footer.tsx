@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 
 const footerLinks = {
   services: [
@@ -20,9 +21,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex flex-col mb-4">
-              <span className="text-gold font-bold text-xl">有钱</span>
-              <span className="text-primary-light font-bold text-xl">科技</span>
+            <div className="mb-4">
+              <Logo variant="full" className="!items-start [&_svg]:text-gold [&_span]:text-white [&_.text-\\[10px\\]]:text-white/40" />
             </div>
             <p className="text-white/60 text-sm max-w-md leading-relaxed">
               广州市有钱科技有限公司，专注为服装行业提供AI视觉生成、社媒IP运营、线下活动引流等一站式数字营销解决方案。

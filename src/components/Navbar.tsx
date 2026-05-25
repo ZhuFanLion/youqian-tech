@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "首页" },
@@ -17,12 +19,23 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
+  };
 
   return (
     <nav
@@ -35,16 +48,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="flex flex-col items-center">
-              <span className="text-gold font-bold text-lg md:text-xl tracking-tight">
-                有钱
-              </span>
-              <span className="text-primary font-bold text-lg md:text-xl tracking-tight">
-                科技
-              </span>
-            </div>
-          </Link>
+          <Logo scrolled={scrolled} />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -52,14 +56,29 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                className={`relative text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? scrolled
+                      ? "text-primary"
+                      : "text-white"
+                    : scrolled
+                    ? "text-foreground/70 hover:text-primary"
+                    : "text-white/70 hover:text-white"
+                }`}
               >
                 {link.label}
+                {isActive(link.href) && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gold"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="bg-primary text-white text-sm font-medium px-5 py-2 rounded-lg hover:bg-primary-dark transition-colors"
+              className="bg-gold text-white text-sm font-medium px-5 py-2 rounded-lg hover:bg-gold-dark transition-all duration-200 hover:scale-105 active:scale-95"
             >
               立即咨询
             </Link>
@@ -68,7 +87,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
+            className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`}
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,21 +104,23 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-border overflow-hidden"
           >
-            <div className="px-4 py-4 space-y-3">
+            <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2"
+                  className={`block text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
+                    isActive(link.href)
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground/70 hover:text-primary hover:bg-muted-light"
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/contact"
-                onClick={() => setIsOpen(false)}
-                className="block text-center bg-primary text-white text-sm font-medium px-5 py-3 rounded-lg hover:bg-primary-dark transition-colors"
+                className="block text-center bg-gold text-white text-sm font-medium px-5 py-3 rounded-lg hover:bg-gold-dark transition-colors mt-3"
               >
                 立即咨询
               </Link>
