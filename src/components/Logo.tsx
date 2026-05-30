@@ -58,16 +58,18 @@ export default function Logo({
   }
 
   return (
-    <Link href="/" className={`flex items-center gap-2.5 shrink-0 ${className}`}>
-      <LogoIcon className={`w-9 h-9 ${textColor}`} />
-      <div className="flex flex-col leading-none">
-        <span className={`font-bold text-lg tracking-tight ${textColor}`}>
+    <Link href="/" className={`flex items-center gap-2 shrink-0 ${className}`}>
+      {/* Left: Circle + COIN AI below */}
+      <div className="flex flex-col items-center leading-none">
+        <LogoIcon className={`w-9 h-9 ${textColor}`} />
+        <span className={`font-bold text-[11px] tracking-wide mt-0.5 ${textColor}`}>
           COIN AI
         </span>
-        <span className={`logo-subtitle text-[10px] tracking-widest uppercase font-medium text-muted`}>
-          有钱科技
-        </span>
       </div>
+      {/* Right: 有钱科技, vertically centered with circle */}
+      <span className="text-[15px] tracking-wider font-semibold text-foreground leading-none">
+        有钱科技
+      </span>
     </Link>
   );
 }

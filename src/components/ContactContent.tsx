@@ -119,8 +119,8 @@ export default function ContactContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="联系我们"
-            title="准备好开始了吗？"
-            description="联系我们，获取专属的行业解决方案"
+            title="现在，让我们搭上AI这辆快车，让生意扶摇直上！"
+            description="联系我们，用专业的实力、贴心的服务及给力的结果交付给您！"
           />
         </div>
       </section>

@@ -24,7 +24,7 @@ export default function Hero({
   const alignClass = align === "center" ? "text-center items-center" : "text-left items-start";
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background pt-20">
+    <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-background pt-16 pb-12">
       {/* Subtle gradient background */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-muted-light/50 rounded-full blur-[120px]" />
@@ -38,9 +38,9 @@ export default function Hero({
           className="max-w-4xl"
         >
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.08] mb-5 tracking-tight"
           >
             {title}

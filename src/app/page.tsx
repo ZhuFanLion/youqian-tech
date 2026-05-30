@@ -5,6 +5,7 @@ import Testimonial from "@/components/Testimonial";
 import BlogCard from "@/components/BlogCard";
 import CTA from "@/components/CTA";
 import SectionHeader from "@/components/SectionHeader";
+import ImageCarousel from "@/components/ImageCarousel";
 import { Camera, Smartphone, Megaphone } from "lucide-react";
 
 export default function HomePage() {
@@ -18,6 +19,9 @@ export default function HomePage() {
         primaryCTA={{ label: "获取方案", href: "/contact" }}
         secondaryCTA={{ label: "了解服务", href: "/ai-model" }}
       />
+
+      {/* AI换装轮播图 */}
+      <ImageCarousel />
 
       {/* 三大业务 */}
       <section className="py-20 md:py-32">
