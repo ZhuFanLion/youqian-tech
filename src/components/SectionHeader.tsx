@@ -25,11 +25,11 @@ export default function SectionHeader({
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="inline-flex items-center gap-2 text-gold font-medium text-sm tracking-wide mb-3"
+          className="inline-flex items-center gap-2 text-muted font-medium text-sm tracking-wide mb-3"
         >
-          <span className="w-6 h-px bg-gold/50" />
+          <span className="w-6 h-px bg-border" />
           {label}
-          <span className="w-6 h-px bg-gold/50" />
+          <span className="w-6 h-px bg-border" />
         </motion.span>
       )}
       <motion.h2
@@ -37,7 +37,7 @@ export default function SectionHeader({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.15 }}
-        className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground dark:text-foreground tracking-tight"
+        className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground tracking-tight"
       >
         {title}
       </motion.h2>

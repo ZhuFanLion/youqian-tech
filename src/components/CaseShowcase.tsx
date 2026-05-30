@@ -43,7 +43,7 @@ export default function CaseShowcase({
             fill
             className="object-cover"
           />
-          <span className="absolute top-3 right-3 bg-gold/90 text-white text-xs font-medium px-2 py-1 rounded">
+          <span className="absolute top-3 right-3 bg-foreground/90 text-white text-xs font-medium px-2 py-1 rounded">
             After
           </span>
         </div>

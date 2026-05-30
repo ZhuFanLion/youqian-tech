@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { buildPageMeta } from "@/lib/seo";
-import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = buildPageMeta({
@@ -14,20 +13,12 @@ export const metadata: Metadata = buildPageMeta({
 export default function AiModelPage() {
   return (
     <>
-      <Hero
-        title="AI模特图片与视频"
-        subtitle="降本增效，让每一张商品图都值得被看见"
-        description="利用先进的AI技术，为服装批发商和品牌方生成高质量模特图片和视频，无需实体拍摄，成本降低80%以上。"
-        primaryCTA={{ label: "获取报价", href: "/contact" }}
-        secondaryCTA={{ label: "查看案例", href: "/ai-model/cases" }}
-      />
-
       {/* 服务介绍 */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-gold font-medium text-sm tracking-wide">
+              <span className="text-muted font-medium text-sm tracking-wide">
                 核心能力
               </span>
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-2 mb-6">
@@ -53,7 +44,7 @@ export default function AiModelPage() {
                   },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
-                    <div className="w-1 bg-gold rounded-full shrink-0 mt-1" />
+                    <div className="w-1 bg-foreground rounded-full shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-foreground">
                         {item.title}

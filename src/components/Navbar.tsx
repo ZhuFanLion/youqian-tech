@@ -18,16 +18,17 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const startY = useRef(0);
   const currentY = useRef(0);
 
   // Scroll detection
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -56,7 +57,6 @@ export default function Navbar() {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     currentY.current = e.touches[0].clientY;
-    // Swipe down to close
     if (currentY.current - startY.current > 80) {
       setIsOpen(false);
     }
@@ -73,35 +73,31 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
+          : "bg-background/60 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           <Logo scrolled={scrolled} />
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-sm font-medium transition-colors min-h-[44px] flex items-center ${
+                className={`relative text-sm transition-colors min-h-[44px] flex items-center ${
                   isActive(link.href)
-                    ? scrolled
-                      ? "text-primary dark:text-primary-light"
-                      : "text-white"
-                    : scrolled
-                    ? "text-foreground/70 hover:text-primary dark:text-foreground/70 dark:hover:text-primary-light"
-                    : "text-white/70 hover:text-white"
+                    ? "text-foreground font-semibold"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
                 {link.label}
                 {isActive(link.href) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gold"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-foreground"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -109,7 +105,7 @@ export default function Navbar() {
             ))}
             <Link
               href="/contact"
-              className="bg-gold text-white text-sm font-medium px-5 py-2 rounded-lg hover:bg-gold-dark transition-all duration-200 hover:scale-105 active:scale-95 min-h-[44px] flex items-center"
+              className="bg-foreground text-background text-sm font-medium px-5 py-2 rounded-full hover:bg-primary-light transition-all duration-200 min-h-[36px] flex items-center"
             >
               立即咨询
             </Link>
@@ -118,12 +114,10 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center ${
-              scrolled ? "text-foreground dark:text-foreground" : "text-white"
-            }`}
+            className="md:hidden p-2 min-w-[44px] min-h-[44px] flex items-center justify-center text-foreground"
             aria-label={isOpen ? "关闭菜单" : "打开菜单"}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
@@ -138,7 +132,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 top-16 bg-black/40 md:hidden"
+              className="fixed inset-0 top-14 bg-black/20 md:hidden"
               onClick={handleBackdropClick}
               aria-hidden="true"
             />
@@ -150,7 +144,7 @@ export default function Navbar() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="md:hidden bg-white dark:bg-slate-900 border-t border-border dark:border-slate-700 shadow-xl"
+              className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border shadow-lg"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
             >
@@ -159,10 +153,10 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`block text-sm font-medium py-3 px-4 rounded-lg transition-colors min-h-[44px] flex items-center ${
+                    className={`block text-sm font-medium py-3 px-4 rounded-xl transition-colors min-h-[44px] flex items-center ${
                       isActive(link.href)
-                        ? "text-primary dark:text-primary-light bg-primary/5 dark:bg-primary-light/10"
-                        : "text-foreground/70 dark:text-foreground/70 hover:text-primary dark:hover:text-primary-light hover:bg-muted-light dark:hover:bg-slate-800"
+                        ? "text-foreground bg-muted-light"
+                        : "text-muted hover:text-foreground hover:bg-muted-light/50"
                     }`}
                   >
                     {link.label}
@@ -171,7 +165,7 @@ export default function Navbar() {
                 <div className="pt-2 pb-1">
                   <Link
                     href="/contact"
-                    className="block text-center bg-gold text-white text-sm font-medium px-5 py-3.5 rounded-lg hover:bg-gold-dark transition-colors min-h-[44px] flex items-center justify-center"
+                    className="block text-center bg-foreground text-background text-sm font-medium px-5 py-3.5 rounded-full hover:bg-primary-light transition-colors min-h-[44px] flex items-center justify-center"
                   >
                     立即咨询
                   </Link>

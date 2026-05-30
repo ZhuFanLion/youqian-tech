@@ -24,7 +24,6 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
     const duration = 2000;
     const startTime = performance.now();
 
-    // easeOutExpo
     const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
     const animate = (currentTime: number) => {
@@ -45,7 +44,6 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
     requestAnimationFrame(animate);
   }, [isInView, value]);
 
-  // Smart number formatting
   const formatNumber = (n: number) => {
     if (n >= 10000000) return `${(n / 10000000).toFixed(0)}千万`;
     if (n >= 10000) return `${(n / 10000).toFixed(n >= 100000 ? 0 : 1)}万`;
@@ -53,7 +51,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   };
 
   return (
-    <span ref={ref} className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tabular-nums">
+    <span ref={ref} className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground tabular-nums">
       {formatNumber(count)}
       {suffix}
     </span>
@@ -87,20 +85,7 @@ const itemVariants = {
 
 export default function Stats({ items }: StatsProps) {
   return (
-    <section className="relative py-16 md:py-24 bg-[#0d1f3c] overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(186,117,23,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(24,95,165,0.3) 0%, transparent 50%)`,
-        }}
-      />
-      <div className="absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
+    <section className="relative py-16 md:py-24 bg-muted-light overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
@@ -116,7 +101,7 @@ export default function Stats({ items }: StatsProps) {
               className="text-center"
             >
               <AnimatedNumber value={item.value} suffix={item.suffix} />
-              <p className="text-white/50 text-sm mt-2 font-medium">{item.label}</p>
+              <p className="text-muted text-sm mt-2 font-medium">{item.label}</p>
             </motion.div>
           ))}
         </motion.div>

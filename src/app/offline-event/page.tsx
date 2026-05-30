@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { buildPageMeta } from "@/lib/seo";
-import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = buildPageMeta({
@@ -14,14 +13,6 @@ export const metadata: Metadata = buildPageMeta({
 export default function OfflineEventPage() {
   return (
     <>
-      <Hero
-        title="线下活动引流"
-        subtitle="让线下流量变成线上增长"
-        description="为服装批发市场、商场、物业方提供专业的线下活动策划和执行服务，打通线上线下流量闭环。"
-        primaryCTA={{ label: "获取方案", href: "/contact" }}
-        secondaryCTA={{ label: "查看案例", href: "/offline-event/cases" }}
-      />
-
       {/* 服务介绍 */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

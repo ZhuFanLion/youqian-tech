@@ -16,28 +16,28 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-white">
+    <footer className="bg-muted-light border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="mb-4">
-              <Logo variant="full" className="!items-start [&_svg]:text-gold [&_span]:text-white [&_.text-\\[10px\\]]:text-white/40" />
+              <Logo variant="full" className="!items-start" />
             </div>
-            <p className="text-white/60 text-sm max-w-md leading-relaxed">
+            <p className="text-muted text-sm max-w-md leading-relaxed">
               广州市有钱科技有限公司，专注为服装行业提供AI视觉生成、社媒IP运营、线下活动引流等一站式数字营销解决方案。
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-sm mb-4 text-gold">服务项目</h4>
+            <h4 className="font-semibold text-sm mb-4 text-foreground">服务项目</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
+                    className="text-sm text-muted hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -48,13 +48,13 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-sm mb-4 text-gold">公司</h4>
+            <h4 className="font-semibold text-sm mb-4 text-foreground">公司</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/60 hover:text-white transition-colors"
+                    className="text-sm text-muted hover:text-foreground transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -65,11 +65,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-white/10 mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/40">
+        <div className="border-t border-border mt-10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-muted">
             &copy; {new Date().getFullYear()} 广州市有钱科技有限公司 版权所有
           </p>
-          <div className="flex gap-6 text-xs text-white/40">
+          <div className="flex gap-6 text-xs text-muted">
             <span>粤ICP备XXXXXXXX号</span>
           </div>
         </div>

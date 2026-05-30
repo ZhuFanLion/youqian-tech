@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { buildPageMeta } from "@/lib/seo";
-import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 
 export const metadata: Metadata = buildPageMeta({
@@ -14,14 +13,6 @@ export const metadata: Metadata = buildPageMeta({
 export default function SocialIpPage() {
   return (
     <>
-      <Hero
-        title="社媒IP打造"
-        subtitle="让您的品牌被更多人看见"
-        description="专业运营小红书、抖音等主流平台，通过内容策划、账号运营、数据优化，打造高影响力IP账号。"
-        primaryCTA={{ label: "获取方案", href: "/contact" }}
-        secondaryCTA={{ label: "查看案例", href: "/social-ip/cases" }}
-      />
-
       {/* 服务介绍 */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -54,8 +54,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
-              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                <span className="text-gold text-2xl font-bold">愿</span>
+              <div className="w-16 h-16 rounded-full bg-muted-light flex items-center justify-center mx-auto mb-4">
+                <span className="text-foreground text-2xl font-bold">愿</span>
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">愿景</h3>
               <p className="text-sm text-muted leading-relaxed">

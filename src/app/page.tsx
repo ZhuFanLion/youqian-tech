@@ -19,7 +19,7 @@ export default function HomePage() {
         secondaryCTA={{ label: "了解服务", href: "/ai-model" }}
       />
 
-      {/* 三大业务 — primary section: larger padding */}
+      {/* 三大业务 */}
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -29,34 +29,31 @@ export default function HomePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             <BusinessCard
-              icon={<Camera size={24} className="text-gold" />}
+              icon={<Camera size={24} />}
               title="AI模特图片与视频"
               description="利用AI技术生成高质量模特图片和视频，大幅降低拍摄成本，提升商品展示效果。"
               href="/ai-model"
-              color="gold"
               index={0}
             />
             <BusinessCard
-              icon={<Smartphone size={24} className="text-primary" />}
+              icon={<Smartphone size={24} />}
               title="社媒IP打造"
               description="专业运营小红书、抖音等平台，打造高影响力IP账号，精准触达目标客户群。"
               href="/social-ip"
-              color="primary"
               index={1}
             />
             <BusinessCard
-              icon={<Megaphone size={24} className="text-accent" />}
+              icon={<Megaphone size={24} />}
               title="线下活动引流"
               description="策划执行线下品牌活动，打通线上线下流量闭环，助力服装物业方实现精准引流。"
               href="/offline-event"
-              color="accent"
               index={2}
             />
           </div>
         </div>
       </section>
 
-      {/* 数据亮点 — compact section */}
+      {/* 数据亮点 */}
       <Stats
         items={[
           { value: 200, suffix: "+", label: "服务客户" },
@@ -66,7 +63,7 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 客户评价 — secondary section: moderate padding */}
+      {/* 客户评价 */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
@@ -100,8 +97,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 博客 — secondary section with background */}
-      <section className="py-16 md:py-24 bg-muted-light dark:bg-slate-800/30">
+      {/* 博客 */}
+      <section className="py-16 md:py-24 bg-muted-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             label="行业洞察"

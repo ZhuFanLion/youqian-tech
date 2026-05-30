@@ -61,7 +61,7 @@ export default function BlogPage() {
       <section className="pt-32 pb-16 bg-gradient-to-b from-primary/5 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <span className="text-gold font-medium text-sm tracking-wide">
+            <span className="text-muted font-medium text-sm tracking-wide">
               行业洞察
             </span>
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-3">

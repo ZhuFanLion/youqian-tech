@@ -67,7 +67,7 @@ export default function SocialIpCasesPage() {
                 <div className="p-4">
                   <h3 className="font-semibold text-foreground">{item.title}</h3>
                   <p className="text-xs text-muted mt-1">{item.brand}</p>
-                  <div className="mt-3 inline-flex bg-gold/10 text-gold text-xs font-semibold px-3 py-1 rounded-full">
+                  <div className="mt-3 inline-flex bg-muted-light text-foreground text-xs font-semibold px-3 py-1 rounded-full">
                     {item.metric}
                   </div>
                 </div>
