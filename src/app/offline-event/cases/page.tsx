@@ -1,11 +1,13 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/offline-event/cases",
   title: "线下活动案例",
   description: "查看线下活动引流的真实案例，活动现场照片和引流数据展示。",
-};
+});
 
 export default function OfflineEventCasesPage() {
   return (

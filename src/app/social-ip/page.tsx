@@ -1,12 +1,15 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/social-ip",
   title: "社媒IP打造",
   description:
-    "专业运营小红书、抖音等平台，打造高影响力IP账号，精准触达服装行业目标客户群。",
-};
+    "专业运营小红书、抖音等平台，打造高影响力IP账号，精准触达服装行业目标客户群。包含账号定位、内容策划、数据优化。",
+  keywords: ["社媒运营", "小红书运营", "抖音运营", "IP打造", "服装社媒"],
+});
 
 export default function SocialIpPage() {
   return (

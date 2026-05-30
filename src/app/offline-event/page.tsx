@@ -1,12 +1,15 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/offline-event",
   title: "线下活动引流",
   description:
-    "为服装物业方策划执行线下品牌活动，打通线上线下流量闭环，实现精准引流。",
-};
+    "为服装物业方策划执行线下品牌活动，打通线上线下流量闭环，实现精准引流。活动策划、现场执行、效果追踪一条龙服务。",
+  keywords: ["线下活动", "服装活动策划", "批发市场引流", "品牌活动"],
+});
 
 export default function OfflineEventPage() {
   return (

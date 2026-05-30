@@ -1,11 +1,14 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import SectionHeader from "@/components/SectionHeader";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/about",
   title: "关于我们",
   description:
     "广州市有钱科技有限公司，专注为服装行业提供AI视觉生成、社媒IP运营、线下活动引流等一站式数字营销解决方案。",
-};
+  keywords: ["关于有钱科技", "公司介绍", "服装行业数字化", "AI营销公司"],
+});
 
 export default function AboutPage() {
   return (

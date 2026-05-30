@@ -1,11 +1,13 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/social-ip/cases",
   title: "社媒IP案例",
   description: "查看社媒IP打造的真实运营案例，账号增长数据和效果展示。",
-};
+});
 
 export default function SocialIpCasesPage() {
   return (

@@ -1,12 +1,15 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import Hero from "@/components/Hero";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/ai-model",
   title: "AI模特图片与视频",
   description:
-    "利用AI技术为服装行业生成高质量模特图片和视频，大幅降低拍摄成本，提升商品展示效果。",
-};
+    "利用AI技术为服装行业生成高质量模特图片和视频，大幅降低拍摄成本，提升商品展示效果。支持AI换模特、虚拟试穿、商品视频。",
+  keywords: ["AI模特", "AI换装", "虚拟试衣", "AI商品图", "服装摄影"],
+});
 
 export default function AiModelPage() {
   return (

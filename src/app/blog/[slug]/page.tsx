@@ -1,11 +1,14 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { buildPageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/blog",
   title: "文章详情",
-  description: "文章详情页",
-};
+  description: "阅读有钱科技行业洞察文章，了解AI技术、社媒运营、活动策划最新干货。",
+  noIndex: true,
+});
 
 export default function BlogDetailPage({
   params,

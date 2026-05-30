@@ -1,10 +1,14 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import BlogCard from "@/components/BlogCard";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/blog",
   title: "行业洞察",
-  description: "AI技术、社媒运营、活动策划的行业前沿分享和干货文章。",
-};
+  description:
+    "AI技术、社媒运营、活动策划的行业前沿分享和干货文章。服装行业数字化营销深度解读。",
+  keywords: ["AI服装", "社媒运营", "小红书干货", "服装行业分析"],
+});
 
 const blogPosts = [
   {

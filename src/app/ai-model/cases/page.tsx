@@ -1,11 +1,13 @@
 import { Metadata } from "next";
+import { buildPageMeta } from "@/lib/seo";
 import SectionHeader from "@/components/SectionHeader";
 import CTA from "@/components/CTA";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMeta({
+  path: "/ai-model/cases",
   title: "AI模特案例",
   description: "查看AI模特图片与视频的真实案例效果，Before/After对比展示。",
-};
+});
 
 export default function AiModelCasesPage() {
   return (
